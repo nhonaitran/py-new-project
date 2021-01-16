@@ -1,0 +1,27 @@
+#
+# This shell script creates a new python project, setup virtualenv, 
+# and add rudimental directories and files to the project.
+#
+project=$1
+version=$2
+
+echo "creating project directory..."
+mkdir $project
+
+echo "copy project dependency file..."
+#cp requirements.txt $project/.
+
+echo "setting up virtual environment with python $version..."
+pyenv virtualenv $version $project
+
+echo "enabling virtual environment..."
+cd $project
+echo "$project" > .python-version
+
+echo "adding boilerplate dirs and files..."
+mkdir tests
+touch setup.py
+touch README.md
+touch .gitignore
+
+
